@@ -9,12 +9,12 @@ const inputTextoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const itemList = document.getElementsByClassName('.item-lista');
 const listaDeTarefas = document.getElementById('lista-tarefas') ;
+const btnApagaTudo = document.getElementById('apaga-tudo');
 // const btnDelet = document.querySelector('.btnDelet')
 
 btnCriarTarefa.addEventListener('click', addTodo);
 
 function addTodo(){
-    event.preventDefault()
     const listTodo = document.querySelector('#lista-tarefas');
     const criaItemLista = document.createElement('li')
     criaItemLista.classList.add('item-lista');
@@ -38,3 +38,8 @@ listaDeTarefas.addEventListener('dblclick', tarefaFeita);
 function tarefaFeita(evento){
     evento.target.classList.toggle('completed');
 }
+
+btnApagaTudo.addEventListener('click', apagaTudo);
+function apagaTudo(evento){
+    listaDeTarefas.innerHTML=''
+} 
