@@ -33,3 +33,8 @@ function mudaCor(event) {
         event.target.style.backgroundColor="rgb(128, 128, 128)"
     }
 }
+
+listaDeTarefas.addEventListener('dblclick', tarefaFeita);
+function tarefaFeita(evento){
+    evento.target.classList.toggle('completed');
+}
