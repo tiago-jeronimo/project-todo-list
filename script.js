@@ -11,6 +11,7 @@ const itemList = document.getElementsByClassName('.item-lista');
 const listaDeTarefas = document.getElementById('lista-tarefas') ;
 const btnApagaTudo = document.getElementById('apaga-tudo');
 const btnApagaFinalizados = document.getElementById('remover-finalizados');
+const btnSalvaTarefas = document.getElementById('salvar-tarefas');
 // const btnDelet = document.querySelector('.btnDelet')
 
 btnCriarTarefa.addEventListener('click', addTodo);
@@ -53,6 +54,16 @@ function apagaFinalizados(event){
         listaDeTarefas.removeChild(finalizados[i])
     }
 }
-
-
 btnApagaFinalizados.addEventListener('click', apagaFinalizados);
+
+
+const salvaTarefas = (event) => {
+    localStorage.setItem('Itens Salvos', listaDeTarefas.innerHTML);
+}
+
+window.onload=() => {
+    const salvos = localStorage.getItem('Itens Salvos')
+    listaDeTarefas.innerHTML=salvos
+}
+
+btnSalvaTarefas.addEventListener('click', salvaTarefas);
