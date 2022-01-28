@@ -12,7 +12,7 @@ const listaDeTarefas = document.getElementById('lista-tarefas') ;
 const btnApagaTudo = document.getElementById('apaga-tudo');
 const btnApagaFinalizados = document.getElementById('remover-finalizados');
 const btnSalvaTarefas = document.getElementById('salvar-tarefas');
-// const btnDelet = document.querySelector('.btnDelet')
+const btnRemove = document.getElementById('remover-selecionado')
 
 btnCriarTarefa.addEventListener('click', addTodo);
 
@@ -65,5 +65,13 @@ window.onload=() => {
     const salvos = localStorage.getItem('Itens Salvos')
     listaDeTarefas.innerHTML=salvos
 }
-
 btnSalvaTarefas.addEventListener('click', salvaTarefas);
+
+function removeIntem(evento){
+    for(let i=0; i<listaDeTarefas.children.length; i+=1){
+        if(listaDeTarefas.children[i].style.backgroundColor==='rgb(128, 128, 128)'){
+            listaDeTarefas.removeChild(listaDeTarefas.children[i]);
+        }
+    }
+}
+btnRemove.addEventListener('click', removeIntem)
